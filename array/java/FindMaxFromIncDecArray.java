@@ -21,6 +21,7 @@ public class FindMaxFromIncDecArray {
   }
 
   // using concept like a binary search
+  // this solution can only deal with there is no duplicates.
   public static int findMaxHelper(int[] arr, int start, int end) {
     if (start < 0 || end < 0 || start > end) return -1; // invalid
     if (start == end) return start;
@@ -29,4 +30,6 @@ public class FindMaxFromIncDecArray {
     if (arr[mid] < arr[mid+1]) return findMaxHelper(arr, mid+1, end);
     return -1; // one time appear twice.
   }
+
+  // TODO tenary search
 }
