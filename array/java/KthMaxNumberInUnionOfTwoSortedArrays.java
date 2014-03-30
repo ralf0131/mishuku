@@ -5,23 +5,24 @@
  * A: 2, 4, 5, 9
  * B: 3, 6, 8
  * Output: the 4th max number is 5
- * using merge sort like concept without copying the data, using O(1) space.
+ * Assume there is no duplicates.
  */
 
-public class KthMaxNumberInUnionOfTwoSortedArrays {
+public class KthMinNumberInUnionOfTwoSortedArrays {
 
   public static void main(String[] args) {
     try {
       int[] A = new int[]{2, 5, 6};
       int[] B = new int[]{1, 3, 4, 7, 8};
-      System.out.println(findKthMax(A, B, 4));
-      System.out.println(findKthMax(A, B, 1));
+      System.out.println(findKthMin1(A, B, 4));
+      System.out.println(findKthMin1(A, B, 1));
     } catch (Exception e) {
       e.printStackTrace();
     }
   }
 
-  public static int findKthMax(int[] A, int[] B, int k) throws Exception {
+  // using merge sort like concept without copying the data, O(k) time, O(1) space.
+  public static int findKthMin1(int[] A, int[] B, int k) throws Exception {
     if (A.length == 0 || B.length == 0 || k <= 0 || k > A.length + B.length) {
       throw new Exception("Invalid input.");
     }
