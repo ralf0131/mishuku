@@ -27,18 +27,15 @@ Node* removeNode(Node* head, int v){
   if (head == NULL) return 0;
   Node* pre = NULL;
   Node* cur = head;
-  Node* next = NULL;
   int count = 0;
   while (cur != NULL) {
     if (cur->value == v) {
       // remove this node
-      if(pre != NULL) pre->next = cur->next;
-      next = cur->next;
-      cur->next = NULL;
+      if(pre != NULL) pre->next = cur->next; // remove non-head not
+      else head = cur->next; // remove head node
       delete cur;
       count++;
-      cur = next;
-      if (pre == NULL) head = cur;
+      cur = pre == NULL ? head : pre->next;
     } else {
       // moving forword
       pre = cur;
